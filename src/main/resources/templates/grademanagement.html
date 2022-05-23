@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <title>メンバー管理</title>
@@ -9,10 +9,10 @@
 <div1>
     <table style="margin: auto;align-content: center;">
         <tr>
-            名前<input type="text" id="name">
-            科目<select id="subject"><option value="0">全て</option><option value="1">JAVA</option>
+            名前<input type="text" name="name">
+            科目<select name="subject"><option value="0">全て</option><option value="1">JAVA</option>
             <option value="2">HTML</option><option value="3">JS</option><option value="4">C#</option></select>
-            成績<input type="text" id="grade"><br>
+            成績<input type="text" name="grade"><br>
             <br>
             <br>
 
@@ -53,14 +53,14 @@
 </div2>
 <div3>
     <form align="center">
-        名前<input type="text" id=newname">
-        科目<select id="newsubject"><option value="0">全て</option><option value="1">JAVA</option>
+        名前<input type="text" name="newname">
+        科目<select name="newsubject"><option value="0">全て</option><option value="1">JAVA</option>
         <option value="2">HTML</option><option value="3">JS</option><option value="4">C#</option></select>
-        成績<input type="text" id="newgrade"><br>
+        成績<input type="text" name="newgrade"><br>
         <br>
         <br>
         <tr>
-            <td></td><td></td><td><button>メニュー画面に戻る</button></td><td></td><td></td><td></td>
+            <td></td><td></td><td><a class="btn-primary" th:href="@{/menu}">メニュー画面に戻る</a></td><td></td><td></td><td></td>
             <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></td>
             <td><button>更新する</button></td>
         </tr>
