@@ -11,7 +11,7 @@
 </head>
 <body>
 <h1 align="center">新規メンバー画面</h1>
-<form align="center">
+<form align="center"　method="post" th:action="@{/addMember}">
     名前<input type="text" name="name">
     性別<select name="sex"><option value="0"></option><option value="1">男性</option>
     <option value="2">女性</option></select>

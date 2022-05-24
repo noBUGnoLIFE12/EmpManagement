@@ -11,31 +11,32 @@ public interface MemberService {
      * @param  id 主键
      * @return 实例对象
      */
-Member queryById(Integer id);
+    Member queryById(Integer id);
 
     /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
+    * 查询数据库中member表的所有数据
+    *
+    * @return 对象列表
+    */
+     List<Member> queryAll();
+
+    /**
+     * 根据条件查询数据
      */
-List<Member> queryAllByLimit(int offset, int limit);
-List<Member> queryAll();
-List<Member> queryByCondition(String name, Integer age, String gender,String phone_num, String address);
+     List<Member> queryByCondition(String name, Integer age, String gender,String phone_num, String address);
 
-/**
- * 新增数据
- */
-Member insert(Member member);
+     /**
+     * 新增数据
+     */
+     Member insert(Member member);
 
-/**
- * 修改数据
- */
-boolean update(Member member);
+     /**
+      * 修改数据
+     */
+     boolean update(Member member);
 
-/**
- * 删除数据
- */
-boolean deleteById(Integer id);
+     /**
+     * 删除数据
+     */
+     boolean deleteById(Integer id);
 }
