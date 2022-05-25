@@ -3,24 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>新規成績画面</title>
-    <!--    <style>-->
-    <!--        table,tr,td{-->
-    <!--            border: 1px solid black;-->
-    <!--        }-->
-    <!--    </style>-->
+
 </head>
 <body>
 <h1 align="center">新規成績画面</h1>
-<form align="center">
+<form align="center" class="" method="post" th:action="@{/newgrade}">
     名前<input type="text" name="name">
-    科目<select name="subject"><option value="0">全て</option><option value="1">JAVA</option>
+    科目<select name="course_name"><option value="0">全て</option><option value="1">JAVA</option>
     <option value="2">HTML</option><option value="3">JS</option><option value="4">C#</option></select>
     成績<input type="text" name="grade"><br>
     <br>
     <br>
     <br>
     <br>
-</form>
+
 <div align="center">
     <table>
         <tr>
@@ -30,5 +26,6 @@
         </tr>
     </table>
 </div>
+</form>
 </body>
 </html>

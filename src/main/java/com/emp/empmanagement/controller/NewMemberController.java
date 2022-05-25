@@ -3,6 +3,7 @@ package com.emp.empmanagement.controller;
 import com.emp.empmanagement.bean.Member;
 import com.emp.empmanagement.service.MemberService;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -13,10 +14,15 @@ public class NewMemberController {
     @Resource
     private MemberService memberService;
 
-    @RequestMapping(value="toPage/newmember", method = RequestMethod.POST)
+    @RequestMapping(value="/newmember")
+    public String menu(){
+        return "newmember";
+    }
+
+    @PostMapping("/newmember")
     public String addMember(Member member){
         System.out.println(member.toString());
         memberService.insert(member);
-        return "redirect:toPage/newmember";
+        return "redirect:/newmember";
     }
 }

@@ -11,26 +11,24 @@
 </head>
 <body>
 <h1 align="center">新規メンバー画面</h1>
-<form align="center"　method="post" th:action="@{/addMember}">
+<form align="center"　class="" method="post" th:action="@{/newmember}">
     名前<input type="text" name="name">
-    性別<select name="sex"><option value="0"></option><option value="1">男性</option>
+    性別<select name="gender"><option value="0"></option><option value="1">男性</option>
     <option value="2">女性</option></select>
     住所<input type="text" name="address"><br>
     年齢<input type="text" name="age">
-    携帯番号<input type="text" name="phone">
+    携帯番号<input type="text" name="phone_num">
     <br>
     <br>
     <br>
     <br>
-</form>
-<div align="center">
-    <table>
     <tr>
         <td><input class="btn-primary" type="submit" value="新規追加"/></td><td></td><td>
         <a class="btn-primary" th:href="@{/menu}">メニュー画面に戻る</a></td>
     </td>
     </tr>
-    </table>
-</div>
+
+
+</form>
 </body>
 </html>
