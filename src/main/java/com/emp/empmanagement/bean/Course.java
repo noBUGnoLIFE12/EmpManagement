@@ -31,4 +31,13 @@ public class Course implements Serializable {
     public void setCourse_name(String course_name) {
         this.course_name = course_name;
     }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "id=" + id +
+                ", course_id=" + course_id +
+                ", course_name='" + course_name + '\'' +
+                '}';
+    }
 }

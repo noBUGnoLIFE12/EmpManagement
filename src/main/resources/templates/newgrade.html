@@ -9,8 +9,7 @@
 <h1 align="center">新規成績画面</h1>
 <form align="center" class="" method="post" th:action="@{/newgrade}">
     名前<input type="text" name="name">
-    科目<select name="course_name"><option value="0">全て</option><option value="1">JAVA</option>
-    <option value="2">HTML</option><option value="3">JS</option><option value="4">C#</option></select>
+    科目<select name="course_name"><option th:each="course:${courseList}" th:text="${course.getCourse_name()}" th:value="${course.getCourse_name()}"/></select>
     成績<input type="text" name="grade"><br>
     <br>
     <br>
