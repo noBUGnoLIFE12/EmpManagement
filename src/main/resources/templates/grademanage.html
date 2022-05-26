@@ -6,65 +6,76 @@
     <h1 align="center">成績管理</h1>
 </head>
 <body>
+<style>
+    div1{
+        display: flex;
+        align-items: center;
+    }
+    div2{
+        display: flex;
+        align-items: center;
+    }
+    div3{
+        display: flex;
+        align-items: center;
+    }
+
+</style>
 <div1>
-    <form1 style="margin: auto;align-content: center;">
+    <form1 style="margin: auto;align-content: center;" method="post" th:action="@{/searchGrade}">
         <tr>
             名前<input type="text" name="name">
-            科目<select name="subject"><option value="0">全て</option><option value="1">JAVA</option>
-            <option value="2">HTML</option><option value="3">JS</option><option value="4">C#</option></select>
-            成績<input type="text" name="grade"><br>
+            科目<select name="course_name"><option th:each="course:${courseList}" th:text="${course.getCourse_name()}" th:value="${course.getCourse_name()}"/></select>
+            <button>検索</button><br>
             <br>
             <br>
 
     </form1>
 </div1>
-
-<div2 style="margin:250px;align:center">
+<div2>
     <table border="1" cellspacing="0" style="width: 500px;height: 100px" >
 
         <tr>
+
             <th>名前</th>
             <th>科目</th>
             <th>成績</th>
             <th>操作</th>
         </tr>
 
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><button>変更</button></td>
+        <tr id="queryAll" th:each="grade:${gradeList}" >
+            <td th:text="${grade.getName()}"></td>
+            <td th:text="${grade.getCourse_name()}"></td>
+            <td th:text="${grade.getGrade()}"></td>
+
+            <td><button th:onclick="changeMember([[${grade.id}]],[[${grade.name}]],[[${grade.course_name}]],[[${grade.grade}]])">変更</button></td>
         </tr>
 
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><button>変更</button></td>
-        </tr>
-
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><button>変更</button></td>
-        </tr>
     </table>
 </div2>
 <div3>
-    <form2 align="center">
-        名前<input type="text" name="newname">
-        科目<select name="newsubject"><option value="0">全て</option><option value="1">JAVA</option>
-        <option value="2">HTML</option><option value="3">JS</option><option value="4">C#</option></select>
-        成績<input type="text" name="newgrade"><br>
+    <form2 align="center" method="post" th:action="@{/updateGrade}">
+        <input id="new_id" name="id" type="hidden">
+        名前<input type="text" id="new_name" name="name">
+        科目<select id="new_courseName" name="course_name"><option th:each="course:${courseList}" th:text="${course.getCourse_name()}" th:value="${course.getCourse_name()}"/></select>
+        成績<input id="new_grade" type="text" name="grade"><br>
         <br>
         <br>
         <tr>
             <td></td><td></td><td><a class="btn-primary" th:href="@{/menu}">メニュー画面に戻る</a></td><td></td><td></td><td></td>
             <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></td>
-            <td><button>更新する</button></td>
+            <td><input type="submit" value="更新する"/></td>
         </tr>
     </form2>
 </div3>
+<script>
+    function changeMember(id, name, course_name, grade){
+        document.getElementById("new_id").value = id;
+        document.getElementById("new_name").value = name;
+        document.getElementById("new_courseName").value = course_name;
+        document.getElementById("new_grade").value = grade;
+    }
+</script>
+
 </body>
 </html>

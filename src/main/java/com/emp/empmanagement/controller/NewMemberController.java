@@ -15,7 +15,7 @@ public class NewMemberController {
     private MemberService memberService;
 
     @RequestMapping(value="/newmember")
-    public String menu(){
+    public String newMember(){
         return "newmember";
     }
 

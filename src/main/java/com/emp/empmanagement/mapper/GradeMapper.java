@@ -29,6 +29,7 @@ List<Grade> queryAllByLimit(@Param("offset")int offset, @Param("limit")int limit
  *
  * @return 对象列表
  */
+@Select("SELECT * FROM grade")
 List<Grade> queryAll();
 @Select("SELECT * FROM grade WHERE name=#{name} AND course_name=#{course_name} AND grade=#{grade}")
     List<Grade> queryByCondition(String name, String course_name,Integer grade);

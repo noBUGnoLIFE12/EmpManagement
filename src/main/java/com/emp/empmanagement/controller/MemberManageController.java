@@ -11,7 +11,7 @@ public class MemberManageController {
     @Resource
     MemberService memberService;
     @RequestMapping(value="/membermanage")
-    public String menu(){
+    public String memberManage(){
         return "membermanage";
     }
 }
